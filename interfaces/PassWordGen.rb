@@ -1,7 +1,17 @@
 require 'fox16'
 include Fox
+
+class HelloWorld < FXMainWindow
+  def initialize(app)
+    super(app, "Hello, World!" , :width => 200, :height => 50)
+  end
+  def create
+    super
+    show(PLACEMENT_SCREEN)
+  end
+end
+
 app = FXApp.new
-main = FXMainWindow.new(app, "Hello, World!" , :width => 200, :height => 50)
+HelloWorld.new(app)
 app.create
-main.show(PLACEMENT_SCREEN)
 app.run
